@@ -1,0 +1,9 @@
+<mat-card>
+    <mat-form-field>
+        <textarea matInput rows="7" [(ngModel)]="dummyText" #userInput></textarea>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" (click)="onSavePost(userInput)" type="button">Save Post</button>
+</mat-card>
+<p>The value of data is : <i>{{dummyText}}</i></p>
+
