@@ -7,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class PostListComponent implements OnInit {
 
-  @Input() newPosts = [];
+  @Input() posts = [];
   // posts = [{
   //   name: 'Football',
   //   desc : 'Cristiano Ronaldo is the best Player'
