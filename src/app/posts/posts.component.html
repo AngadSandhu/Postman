@@ -1,2 +1,3 @@
 
-<app-create-post></app-create-post>
+<app-create-post (onSavePost)='postCreatedEvent($event)'></app-create-post>
+<app-post-list [newPosts] ='posts'></app-post-list>

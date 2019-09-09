@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-create-post',
@@ -7,17 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreatePostComponent implements OnInit {
 
-  dummyText = 'Tusi fuddu ho';
-  random = 'Hey there';
+  postHeader = '';
+  postDesc = '';
+
+  @Output() postCreated = new EventEmitter();
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  onSavePost(userinput: HTMLTextAreaElement) {
-    this.dummyText = userinput.value;
-    alert(this.dummyText);
+  onSavePost() {
+    const post  = { name: this.postHeader, desc: this.postDesc };
+    this.postCreated.emit(post);
   }
 
 }

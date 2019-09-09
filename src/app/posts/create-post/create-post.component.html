@@ -1,6 +1,9 @@
 <mat-card>
     <mat-form-field>
-        <textarea matInput rows="7" [(ngModel)]="dummyText" #userInput></textarea>
+        <input matInput [(ngModel)]="postHeader" placeholder="Name of the Post"/>
+    </mat-form-field>
+    <mat-form-field>
+        <textarea matInput rows="7" [(ngModel)]="postDesc" placeholder="Describe your post" #userInput></textarea>
     </mat-form-field>
 
     <button mat-raised-button color="primary" (click)="onSavePost(userInput)" type="button">Save Post</button>
