@@ -1,11 +1,14 @@
 <mat-card>
+  <form (submit)="onSavePost(postform)" #postform="ngForm">
     <mat-form-field>
-        <input matInput [(ngModel)]="postHeader" placeholder="Name of the Post"/>
+        <input matInput ngModel name="name" placeholder="Name of the Post" #title="ngModel" required/>
+        <mat-error *ngIf="title.invalid">{{'Please Enter a Valid Title'}}</mat-error>
     </mat-form-field>
     <mat-form-field>
-        <textarea matInput rows="7" [(ngModel)]="postDesc" placeholder="Describe your post" #userInput></textarea>
+        <textarea matInput rows="7" name="description" ngModel placeholder="Describe your post" #userInput="ngModel" required></textarea>
+        <mat-error *ngIf="userInput.invalid">{{'Please Enter a valid Description'}}</mat-error>
     </mat-form-field>
-
-    <button mat-raised-button color="primary" (click)="onSavePost(userInput)" type="button">Save Post</button>
+    <button mat-raised-button color="primary" type="submit">Save Post</button>
+  </form>
 </mat-card>
 
