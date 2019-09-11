@@ -1,0 +1,11 @@
+{  "posts" : [{
+    "name": "Football",
+    "desc" : "Cristiano Ronaldo is the best Player"
+  }, {
+    "name" : "Angular JS",
+    "desc": "JS framework for FE Dev by Google"
+  }, {
+    "name": "ReactJS",
+    "desc": "Superfast Javascript Library for UI"
+  }]
+}

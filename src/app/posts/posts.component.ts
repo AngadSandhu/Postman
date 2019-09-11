@@ -7,11 +7,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PostsComponent implements OnInit {
 
-  newPosts = [];
-
-  postCreatedEvent(post) {
-    this.newPosts.push(post);
-  }
   constructor() { }
 
   ngOnInit() {
