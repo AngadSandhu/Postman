@@ -11,11 +11,11 @@ export class PostService {
 
   constructor() { }
 
-  getPosts() {
+  getPosts() {   // Fetching Posts
     return [...this.posts];
   }
 
-  updatedPostsListener(){
+  updatedPostsListener() {
     return this.newPosts.asObservable();
   }
 
