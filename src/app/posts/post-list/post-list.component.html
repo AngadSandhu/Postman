@@ -1,8 +1,8 @@
 <div class="listview">
-  <mat-accordion multi="true" *ngIf="posts">                                       <!--the multi attribute here allows us to expand multiple panel at the same time -->
+  <mat-accordion multi="true" *ngIf="posts.length > 0">                                       <!--the multi attribute here allows us to expand multiple panel at the same time -->
     <mat-expansion-panel *ngFor="let post of posts">
-      <mat-expansion-panel-header>{{post.name}}</mat-expansion-panel-header>
-      <p>{{post.desc}}</p>
+      <mat-expansion-panel-header>{{post.title}}</mat-expansion-panel-header>
+      <p>{{post.description}}</p>
       <mat-action-row>
         <button mat-stroked-button color="primary">Edit Post</button>
         <button mat-stroked-button color="warn">Delete Post</button>

@@ -1,6 +1,9 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 const app = express();
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}));
 
 // Middleware for handling CORS
 app.use((req,res,next)=>{
@@ -29,5 +32,13 @@ app.use('/posts',(req,res)=>{
     posts: posts
   }));
 });
+
+// app.post('/posts', (req,res,next)=>{
+//     const newPost = req.body;
+//     alert('Post Saved', newPost);
+//     res.status(200).json({
+//       message: 'Added Successfully'
+//     });
+// });
 
 module.exports = app;
