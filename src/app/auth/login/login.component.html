@@ -1,0 +1,12 @@
+<mat-card>
+  <form *ngIf="!isLoading">
+    <mat-form-field>
+      <input matInput type="email" placeholder="Enter your Email" required/>
+      <mat-error *ngIf="">Please Enter a Valid Email</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="password" placeholder="Enter your Password" required/>
+      <mat-error *ngIf="">Please Enter a Valid Password</mat-error>
+    </mat-form-field>
+  </form>
+</mat-card>

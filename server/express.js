@@ -4,13 +4,15 @@ const bodyParser = require('body-parser');
 const app = express();
 
 const Post = require("./mongoose/models/Post-Model");
-mongoose.connect("mongodb+srv://admin:admin@basware-practise-83yji.mongodb.net/test?retryWrites=true&w=majority")
+mongoose.connect('mongodb://localhost/myapp');
+mongoose.connect("mongodb+srv://admin:admin@basware-practise-83yji.mongodb.net/postman?retryWrites=true&w=majority")
     .then(()=>{
       console.log('Conencted To Database');
     })
     .catch(()=>{
       alert('Connection To DB Failed');
-    })
+    });
+
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
@@ -43,12 +45,18 @@ app.use('/posts',(req,res)=>{
   }));
 });
 
-// app.post('/posts', (req,res,next)=>{
-//     const newPost = req.body;
-//     alert('Post Saved', newPost);
-//     res.status(200).json({
-//       message: 'Added Successfully'
-//     });
-// });
+app.post('/posts', (req,res,next)=>{
+    const newPost = Post({
+      title: req.body.title,
+      description: req.body.description
+    });
+
+    newPost.save();
+
+    alert('Post Saved', newPost);
+    res.status(200).json({
+      message: 'Added Successfully'
+    });
+});
 
 module.exports = app;
