@@ -1,6 +1,16 @@
 const express = require('express');
+const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const app = express();
+
+const Post = require("./mongoose/models/Post-Model");
+mongoose.connect("mongodb+srv://admin:admin@basware-practise-83yji.mongodb.net/test?retryWrites=true&w=majority")
+    .then(()=>{
+      console.log('Conencted To Database');
+    })
+    .catch(()=>{
+      alert('Connection To DB Failed');
+    })
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));

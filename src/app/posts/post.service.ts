@@ -10,11 +10,11 @@ export class PostService {
   private posts: Post[] = [];
   private newPosts = new Subject <Post[]>();
 
-  constructor(private httpClient  : HttpClient) { }
+  constructor(private httpClient: HttpClient) { }
 
   getPosts() {
     this.httpClient.get<{message: string, posts: Post[]}>('http://localhost:3000/posts')
-      .subscribe((response)=>{
+      .subscribe((response) => {
         this.posts = response.posts;
         this.newPosts.next([...this.posts]);
       })
@@ -26,7 +26,7 @@ export class PostService {
   }
 
   addPosts(title: string, content: string) {
-    const post: Post = { id: null, name : title, desc: content};
+    const post: Post = { id: null, title : title, description: content};
     this.httpClient.post<{message: string}>('http://localhost:3000/posts', post).subscribe((response)=>{
       console.log('Successfully Added New post');
       this.posts.push(post);
